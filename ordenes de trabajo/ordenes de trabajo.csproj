@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D94808AC-8D70-46EF-A468-18D5D4C88A6E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ordenes_de_trabajo</RootNamespace>
+    <AssemblyName>ordenes de trabajo</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="conexion.cs" />
+    <Compile Include="frmUsuarioMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarioMantenimiento.Designer.cs">
+      <DependentUpon>frmUsuarioMantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarOrden.Designer.cs">
+      <DependentUpon>frmModificarOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAltaSector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaSector.Designer.cs">
+      <DependentUpon>frmAltaSector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenuPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuPrincipal.Designer.cs">
+      <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdmUsuarios.Designer.cs">
+      <DependentUpon>frmAdmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmSectores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdmSectores.Designer.cs">
+      <DependentUpon>frmAdmSectores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAltaOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaOrden.Designer.cs">
+      <DependentUpon>frmAltaOrden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarSector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarSector.Designer.cs">
+      <DependentUpon>frmModificarSector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarUsuario.Designer.cs">
+      <DependentUpon>frmModificarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdenes.Designer.cs">
+      <DependentUpon>frmOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAltaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAltaUsuario.Designer.cs">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmModificarOrden.resx">
+      <DependentUpon>frmModificarOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaSector.resx">
+      <DependentUpon>frmAltaSector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuPrincipal.resx">
+      <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdmUsuarios.resx">
+      <DependentUpon>frmAdmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdmSectores.resx">
+      <DependentUpon>frmAdmSectores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaOrden.resx">
+      <DependentUpon>frmAltaOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarSector.resx">
+      <DependentUpon>frmModificarSector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarUsuario.resx">
+      <DependentUpon>frmModificarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdenes.resx">
+      <DependentUpon>frmOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAltaUsuario.resx">
+      <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmUsuarioMantenimiento.resx">
+      <DependentUpon>frmUsuarioMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
