@@ -24,7 +24,7 @@ namespace ordenes_de_trabajo
             cmbEstado.DisplayMember = "Nombre";
         }
 
-        public static String temporal = "";
+        public static String temporal1 = "";
 
         private void frnOrdenNueva_Load(object sender, EventArgs e)
         {
@@ -149,8 +149,8 @@ namespace ordenes_de_trabajo
         {
             frmUsuarioMantenimiento nuevo = new frmUsuarioMantenimiento();
 
-            temporal = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
-            MessageBox.Show(temporal);
+            temporal1 = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
+            MessageBox.Show(temporal1);
             nuevo.Show();
         }
 

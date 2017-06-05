@@ -17,7 +17,7 @@ namespace ordenes_de_trabajo
             InitializeComponent();  
         }
 
-        public static String temporal = "";
+        public static String temporal2 = "";
 
         private void frmOrdenes_Load(object sender, EventArgs e)
         {
@@ -61,8 +61,8 @@ namespace ordenes_de_trabajo
             {
                 frmModificarOrden modificar = new frmModificarOrden();
 
-                temporal = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
-                MessageBox.Show(temporal);
+                temporal2 = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
+                MessageBox.Show(temporal2);
                 modificar.Show();
             }
     }

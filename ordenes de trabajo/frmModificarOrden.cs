@@ -25,7 +25,7 @@ namespace ordenes_de_trabajo
 
         private void Consultar()
         {
-            int valorId = Convert.ToInt16(frmOrdenes.temporal);
+            int valorId = Convert.ToInt16(frmOrdenes.temporal2);
             //0 declarar la variable tabla
             DataTable oTabla = new DataTable();
 
@@ -71,7 +71,7 @@ namespace ordenes_de_trabajo
 
             try
             {
-                int valorId = Convert.ToInt16(frmOrdenes.temporal);
+                int valorId = Convert.ToInt16(frmOrdenes.temporal2);
                 //0 declarar la variable tabla
                 DataTable oTabla = new DataTable();
 
