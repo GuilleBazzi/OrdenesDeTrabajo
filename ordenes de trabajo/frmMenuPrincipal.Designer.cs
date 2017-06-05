@@ -46,7 +46,7 @@
             this.btnPersonal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnPersonal.Name = "btnPersonal";
             this.btnPersonal.Size = new System.Drawing.Size(244, 95);
-            this.btnPersonal.TabIndex = 5;
+            this.btnPersonal.TabIndex = 8;
             this.btnPersonal.Text = "Administración de usuarios";
             this.btnPersonal.UseVisualStyleBackColor = true;
             this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
@@ -58,7 +58,7 @@
             this.btnSectores.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSectores.Name = "btnSectores";
             this.btnSectores.Size = new System.Drawing.Size(235, 95);
-            this.btnSectores.TabIndex = 4;
+            this.btnSectores.TabIndex = 7;
             this.btnSectores.Text = "Administración de sectores";
             this.btnSectores.UseVisualStyleBackColor = true;
             this.btnSectores.Click += new System.EventHandler(this.btnSectores_Click);
@@ -70,7 +70,7 @@
             this.btnOrdenes.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnOrdenes.Name = "btnOrdenes";
             this.btnOrdenes.Size = new System.Drawing.Size(217, 95);
-            this.btnOrdenes.TabIndex = 3;
+            this.btnOrdenes.TabIndex = 6;
             this.btnOrdenes.Text = "Ordenes de trabajo";
             this.btnOrdenes.UseVisualStyleBackColor = true;
             this.btnOrdenes.Click += new System.EventHandler(this.btnOrdenes_Click);
@@ -83,7 +83,7 @@
             this.label1.Location = new System.Drawing.Point(73, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 20);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 3;
             this.label1.Text = "Ordenes sin asignar";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -95,7 +95,7 @@
             this.label2.Location = new System.Drawing.Point(356, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 20);
-            this.label2.TabIndex = 6;
+            this.label2.TabIndex = 4;
             this.label2.Text = "Ordenes en curso";
             this.label2.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -107,7 +107,7 @@
             this.label3.Location = new System.Drawing.Point(608, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(153, 20);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 5;
             this.label3.Text = "Ordenes pendientes";
             this.label3.Click += new System.EventHandler(this.label1_Click);
             // 
@@ -118,7 +118,7 @@
             this.label4.Location = new System.Drawing.Point(148, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 64);
-            this.label4.TabIndex = 7;
+            this.label4.TabIndex = 0;
             this.label4.Text = "42";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
@@ -129,7 +129,7 @@
             this.label5.Location = new System.Drawing.Point(412, 48);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 64);
-            this.label5.TabIndex = 8;
+            this.label5.TabIndex = 1;
             this.label5.Text = "20";
             // 
             // label6
@@ -139,7 +139,7 @@
             this.label6.Location = new System.Drawing.Point(685, 48);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 64);
-            this.label6.TabIndex = 9;
+            this.label6.TabIndex = 2;
             this.label6.Text = "34";
             // 
             // frmMenuPrincipal

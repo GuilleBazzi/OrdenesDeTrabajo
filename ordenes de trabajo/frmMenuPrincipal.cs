@@ -25,7 +25,7 @@ namespace ordenes_de_trabajo
         private void btnOrdenes_Click(object sender, EventArgs e)
         {
             frmOrdenes adminOrdenes = new frmOrdenes();
-            adminOrdenes.Show();
+            adminOrdenes.ShowDialog();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -42,14 +42,14 @@ namespace ordenes_de_trabajo
         {
            // this.Hide();
             frmAdmUsuarios adminPers = new frmAdmUsuarios();
-            adminPers.Show();
+            adminPers.ShowDialog();
         }
 
         private void btnSectores_Click(object sender, EventArgs e)
         {
             //this.Hide();
             frmAdmSectores adminSec = new frmAdmSectores();
-            adminSec.Show();
+            adminSec.ShowDialog();
         }
 
         private void frmMenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)

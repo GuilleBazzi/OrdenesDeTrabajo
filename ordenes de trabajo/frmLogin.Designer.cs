@@ -46,7 +46,7 @@
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(6);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(173, 34);
-            this.txtUsuario.TabIndex = 0;
+            this.txtUsuario.TabIndex = 3;
             // 
             // txtContraseña
             // 
@@ -55,7 +55,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(173, 34);
-            this.txtContraseña.TabIndex = 1;
+            this.txtContraseña.TabIndex = 5;
             // 
             // lblUsuario
             // 
@@ -76,7 +76,7 @@
             this.lblContraseña.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(73, 17);
-            this.lblContraseña.TabIndex = 3;
+            this.lblContraseña.TabIndex = 4;
             this.lblContraseña.Text = "Contraseña";
             // 
             // btnIngresar
@@ -87,7 +87,7 @@
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(88, 46);
-            this.btnIngresar.TabIndex = 4;
+            this.btnIngresar.TabIndex = 6;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -111,7 +111,7 @@
             this.label1.Location = new System.Drawing.Point(3, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(270, 27);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Gestor de ordenes de trabajo";
             // 
             // label2
@@ -120,7 +120,7 @@
             this.label2.Location = new System.Drawing.Point(145, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 27);
-            this.label2.TabIndex = 7;
+            this.label2.TabIndex = 1;
             // 
             // frmLogin
             // 
