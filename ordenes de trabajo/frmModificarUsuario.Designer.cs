@@ -54,7 +54,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.Location = new System.Drawing.Point(24, 39);
             this.lblNombre.Name = "lblNombre";
@@ -65,9 +65,9 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblApellido.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApellido.Location = new System.Drawing.Point(86, 39);
+            this.lblApellido.Location = new System.Drawing.Point(89, 39);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(65, 20);
             this.lblApellido.TabIndex = 32;

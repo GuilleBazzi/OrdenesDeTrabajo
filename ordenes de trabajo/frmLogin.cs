@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -18,6 +19,8 @@ namespace ordenes_de_trabajo
         }
 
         public static String UserId ="";  //Variable publica que guarda el id del que inicia sesion para poder usarla en otra ventana
+        public static int TipoUser = 1;  //Variable publica que guarda el tipo de usuario del que inicia sesion para poder usarla en otra ventana
+
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -37,10 +40,11 @@ namespace ordenes_de_trabajo
 
                 try
                 {
-                    
-                    UserId = oTabla.Rows[0]["IdUsuario"].ToString();// accedo a la tabla y guardo el id del usuario
 
-                
+                    UserId = oTabla.Rows[0]["IdUsuario"].ToString();// accedo a la tabla y guardo el id del usuario
+                    TipoUser = int.Parse(oTabla.Rows[0]["TipoDeUsuario"].ToString());// accedo a la tabla y guardo el id del usuario
+
+
                     if (oTabla.Rows[0]["Alias"].ToString() == txtUsuario.Text) // Si el alias que me trajo el sp es igual al del textbox
                         {
                            

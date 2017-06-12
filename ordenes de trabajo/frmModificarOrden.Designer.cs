@@ -136,7 +136,7 @@
             // btnQuitar
             // 
             this.btnQuitar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnQuitar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnQuitar.BackColor = System.Drawing.Color.Transparent;
             this.btnQuitar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnQuitar.BackgroundImage")));
             this.btnQuitar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnQuitar.Font = new System.Drawing.Font("Book Antiqua", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,7 +151,7 @@
             // btnAgregar
             // 
             this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
             this.btnAgregar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAgregar.BackgroundImage")));
             this.btnAgregar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAgregar.Font = new System.Drawing.Font("Book Antiqua", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -184,7 +184,7 @@
             this.gvGrilla.ReadOnly = true;
             this.gvGrilla.RowTemplate.Height = 24;
             this.gvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvGrilla.Size = new System.Drawing.Size(479, 146);
+            this.gvGrilla.Size = new System.Drawing.Size(479, 157);
             this.gvGrilla.TabIndex = 27;
             // 
             // Codigo
@@ -338,7 +338,7 @@
             // lblsec
             // 
             this.lblsec.AutoSize = true;
-            this.lblsec.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblsec.BackColor = System.Drawing.Color.Transparent;
             this.lblsec.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblsec.Location = new System.Drawing.Point(24, 194);
             this.lblsec.Name = "lblsec";
@@ -349,7 +349,7 @@
             // lblFechalimite
             // 
             this.lblFechalimite.AutoSize = true;
-            this.lblFechalimite.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblFechalimite.BackColor = System.Drawing.Color.Transparent;
             this.lblFechalimite.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechalimite.Location = new System.Drawing.Point(331, 194);
             this.lblFechalimite.Name = "lblFechalimite";
@@ -362,7 +362,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(565, 580);
+            this.ClientSize = new System.Drawing.Size(565, 591);
             this.Controls.Add(this.lblFechalimite);
             this.Controls.Add(this.lblsec);
             this.Controls.Add(this.btnEliminar);

@@ -21,6 +21,20 @@ namespace ordenes_de_trabajo
 
         private void frmModificarOrden_Load(object sender, EventArgs e)
         {
+            if (frmLogin.TipoUser == 1) //Usuario comun
+            {
+                btnAgregar.Visible = false;
+                btnQuitar.Visible = false;
+                btnEliminar.Visible = false;
+                cmbEstado.Enabled = false;
+                dtpInicio.Enabled = false;
+                dtpFin.Enabled = false;
+            }
+            else if (frmLogin.TipoUser == 3) //Usuario de Mantenimiento
+            {
+                btnAgregar.Visible = false;
+                btnQuitar.Visible = false;
+             }
             Consultar();
         }
 

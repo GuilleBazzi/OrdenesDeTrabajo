@@ -17,7 +17,7 @@ namespace ordenes_de_trabajo
         public Conexion()
 
         {
-            oConexion.ConnectionString = GlobalCon.obtenerConexion(); //"Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;"
+            oConexion.ConnectionString = GlobalCon.obtenerConexion();
             this.Conectar();
 
         }

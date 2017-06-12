@@ -50,7 +50,7 @@
             this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNuevo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnNuevo.Font = new System.Drawing.Font("Book Antiqua", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.Location = new System.Drawing.Point(659, 75);
+            this.btnNuevo.Location = new System.Drawing.Point(661, 75);
             this.btnNuevo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(95, 31);
@@ -61,7 +61,7 @@
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(28, 79);
+            this.txtFiltro.Location = new System.Drawing.Point(11, 79);
             this.txtFiltro.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.txtFiltro.Name = "txtFiltro";
             this.txtFiltro.Size = new System.Drawing.Size(254, 27);
@@ -72,7 +72,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Book Antiqua", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(25, 60);
+            this.label3.Location = new System.Drawing.Point(8, 60);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 16);
@@ -83,7 +83,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 7);
+            this.label1.Location = new System.Drawing.Point(7, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(324, 24);
@@ -107,13 +107,13 @@
             this.FechaLimite,
             this.Estado,
             this.Activo});
-            this.gvGrilla.Location = new System.Drawing.Point(27, 111);
+            this.gvGrilla.Location = new System.Drawing.Point(11, 111);
             this.gvGrilla.Margin = new System.Windows.Forms.Padding(2);
             this.gvGrilla.Name = "gvGrilla";
             this.gvGrilla.ReadOnly = true;
             this.gvGrilla.RowTemplate.Height = 24;
             this.gvGrilla.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvGrilla.Size = new System.Drawing.Size(727, 288);
+            this.gvGrilla.Size = new System.Drawing.Size(745, 304);
             this.gvGrilla.TabIndex = 26;
             this.gvGrilla.Click += new System.EventHandler(this.gvGrilla_Click);
             // 
@@ -163,7 +163,7 @@
             // 
             this.btnAct.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAct.BackgroundImage")));
             this.btnAct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAct.Location = new System.Drawing.Point(703, 7);
+            this.btnAct.Location = new System.Drawing.Point(712, 7);
             this.btnAct.Name = "btnAct";
             this.btnAct.Size = new System.Drawing.Size(51, 39);
             this.btnAct.TabIndex = 31;
@@ -187,7 +187,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(774, 426);
+            this.ClientSize = new System.Drawing.Size(767, 426);
             this.Controls.Add(this.chkInactivos);
             this.Controls.Add(this.btnAct);
             this.Controls.Add(this.btnNuevo);

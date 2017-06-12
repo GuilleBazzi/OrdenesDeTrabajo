@@ -19,6 +19,13 @@ namespace ordenes_de_trabajo
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            if (frmLogin.TipoUser == 1 || frmLogin.TipoUser == 3) {
+                btnSectores.Enabled = false;
+                btnSectores.BackColor = Color.Salmon;
+                btnPersonal.Enabled = false;
+                btnPersonal.BackColor = Color.Salmon;
+            }
+                ;
             Consultar();
         }
 
