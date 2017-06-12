@@ -11,11 +11,13 @@ namespace ordenes_de_trabajo
         SqlConnection oConexion = new SqlConnection();
         SqlCommand oComando = new SqlCommand();
         int iSegundosParaLoguear = 0; // Define el minimo tiempo para empezar a loguear el tiempo que demoran las consultas a la bd. Si es -1, loguea todo.
-
+        GlobalConexion GlobalCon = new GlobalConexion();
 
 
         public Conexion()
+
         {
+            oConexion.ConnectionString = GlobalCon.obtenerConexion(); //"Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;"
             this.Conectar();
 
         }

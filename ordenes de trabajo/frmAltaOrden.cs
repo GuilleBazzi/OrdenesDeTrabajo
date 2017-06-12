@@ -15,40 +15,56 @@ namespace ordenes_de_trabajo
         public frmAltaOrden()
         {
             InitializeComponent();
-            Conexion objConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=TPOT;Data Source=.\\SQLEXPRESS");
-            cmbSector.DataSource = objConexion.EjecutarQuery("SP_LISTAR_SECTORES"); //Ejecuto sp
-            cmbSector.DisplayMember = "Nombre"; //Elijo el campo a mostrar
-
-
-            cmbEstado.DataSource = objConexion.EjecutarQuery("SP_LISTAR_ESTADOS");
-            cmbEstado.DisplayMember = "Nombre";
         }
 
-        public static String temporal1 = "";
+        int CodeOrden = 99; //Guarda el id de la orden 
+        DateTime FechaHoy = DateTime.Today;
+        string userId = frmLogin.UserId;  //Toma el id del usuario logueado desde el formulario Login
+
+
 
         private void frnOrdenNueva_Load(object sender, EventArgs e)
         {
             Consultar();
-            lblFechaOrden.Text = DateTime.Now.ToString();
         }
 
         private void Consultar()
         {
-            //0 declarar la variable tabla
+            // declarar la variable tabla
             DataTable oTabla = new DataTable();
 
-            //1 establecer la conexion
-            Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
+            // establecer la conexion
+            Conexion oConexion = new Conexion();
 
-            // 2 ejecutar spProducto_ConsultarTodos
-            try
+            //  ejecuto  SP y cargo los datos
+           try
             {
+                oConexion.AgregarParametro("@id", Convert.ToInt32(userId));
+                oTabla = oConexion.EjecutarQuery("SP_USUARIO_CREADOR");
+                string Nombre = oTabla.Rows[0]["Nombre"].ToString();
+                string Apellido = oTabla.Rows[0]["Apellido"].ToString();
+                lblUsuario.Text = Nombre + " " + Apellido;
+
                 oConexion.BorrarParametros();
-                oTabla = oConexion.EjecutarQuery("SP_LISTAR_PERSONAL_MANT");
+                oTabla = oConexion.EjecutarQuery("SP_CODIGO_ORDEN");
 
-                // 3 lleno la grilla
+                string Codigo = oTabla.Rows[0]["id"].ToString();
 
-                gvGrilla.DataSource = oTabla;
+                CodeOrden = Convert.ToInt32(Codigo);
+                CodeOrden += 1;
+
+                lblNumeroOt.Text = "Orden N° " + CodeOrden;
+                lblFechaOrden.Text = FechaHoy.ToString("d");
+                oConexion.BorrarParametros();
+                cmbSector.DataSource = oConexion.EjecutarQuery("SP_LISTAR_SECTORES");
+                cmbSector.DisplayMember = "Nombre";
+                cmbEstado.DataSource = oConexion.EjecutarQuery("SP_LISTAR_ESTADO");
+                cmbEstado.DisplayMember = "Nombre";
+
+                //Cierro conexion
+                oConexion.Desconectar();
+
+
             }
             catch (Exception ex)
             {
@@ -57,71 +73,41 @@ namespace ordenes_de_trabajo
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // Al hacer click en guardar
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
-            {
-                DataTable oDatos = new DataTable();
-                //DataTable oMantenimiento = new DataTable();
-                //1 establecer la conexion
-                Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
-                cmbSector.DisplayMember = "IdSector";
-                cmbEstado.DisplayMember = "IdEstado";
+            {       //Comprueba que no esten vacios los campos
+                if (txtDescripcion.Text != "" && txtJustificacion.Text != "")
+                {
 
-                
-                oConexion.BorrarParametros();
-                oConexion.AgregarParametro("@Codigo", txtCodigo.Text);
-                oConexion.AgregarParametro("@Descripcion", txtDescripcion.Text);  //agrego los parametros al sp con los datos tomados ce los txt y cmb
-                oConexion.AgregarParametro("@FechaCreacion", lblFechaOrden.Text);
-                oConexion.AgregarParametro("@FechaLimite", dtpLimite.Text);
-                oConexion.AgregarParametro("@Justificacion", txtJustificacion.Text);
-                oConexion.AgregarParametro("@FechaInicio", dtpInicio.Text);
-                oConexion.AgregarParametro("@FechaFin", dtpFin.Text);
-                oConexion.AgregarParametro("@Estado", cmbEstado.Text);
-                oConexion.AgregarParametro("@Creador", lblUsuario.Text);
-                oConexion.AgregarParametro("@Sector", cmbSector.Text);
+                    DataTable oTabla = new DataTable();
 
-               // oConexion.AgregarParametro("@CodigoUsuario", lblUsuario.Text);
-                //oConexion.AgregarParametro("@Codigo", txtCodigo.Text);
+                    //establecer la conexion
+                    Conexion oConexion = new Conexion();
+                    cmbSector.DisplayMember = "IdSector";
+                    cmbEstado.DisplayMember = "IdEstado";
 
-                oDatos = oConexion.EjecutarQuery("SP_ALTA_ORDEN");
-                //oMantenimiento = oConexion.EjecutarQuery("SP_ALTA_MANTENIMIENTO");
-                this.Hide();
-                MessageBox.Show("Orden creada");
-                oConexion.Desconectar();
+                    oConexion.BorrarParametros();
 
+                    oConexion.AgregarParametro("@Desc", txtDescripcion.Text);  //agrego los parametros al sp con los datos tomados ce los txt y cmb
+                    oConexion.AgregarParametro("@FechaCreac", FechaHoy);
+                    oConexion.AgregarParametro("@FechaLim", dtpLimite.Text);
+                    oConexion.AgregarParametro("@Justif", txtJustificacion.Text);
+                    oConexion.AgregarParametro("@Estado", cmbEstado.Text);
+                    oConexion.AgregarParametro("@Sector", cmbSector.Text);
+                    oConexion.AgregarParametro("@Creador", Convert.ToInt32(userId));
+                    oTabla = oConexion.EjecutarQuery("SP_ALTA_ORDEN");
 
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("ERROR!!\n\n" + ex.Message);
-            }
-
-            try
-            {
-                
-                DataTable oMantenimiento = new DataTable();
-                //1 establecer la conexion
-                Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
-               
-                oConexion.BorrarParametros();
-               oConexion.AgregarParametro("@CodigoUsuario", lblUsuario.Text);
-                oConexion.AgregarParametro("@Codigo", txtCodigo.Text);
-
-                oMantenimiento = oConexion.EjecutarQuery("SP_ALTA_USUARIO_MANTENIMIENTO");
-                this.Hide();
-                MessageBox.Show("Datos Empleado de Mantenimiento guardados ");
-                oConexion.Desconectar();
-
-
-
+         
+                    this.Hide();
+                    //cierro conexion
+                    oConexion.Desconectar();
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar todos los campos! ");
+                }
 
             }
             catch (Exception ex)
@@ -130,29 +116,10 @@ namespace ordenes_de_trabajo
             }
         }
 
-        private void gvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void frmAltaOrden_FormClosing(object sender, FormClosingEventArgs e)
         {
+ 
 
         }
-
-        private void dtpInicio_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblFechaOrden_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            frmUsuarioMantenimiento nuevo = new frmUsuarioMantenimiento();
-
-            temporal1 = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
-            MessageBox.Show(temporal1);
-            nuevo.Show();
-        }
-
     }
 }

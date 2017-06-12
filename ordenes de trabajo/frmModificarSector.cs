@@ -24,25 +24,23 @@ namespace ordenes_de_trabajo
         private void Consultar()
         {
             int valorId = Convert.ToInt16(frmAdmSectores.temporal);
-            //0 declarar la variable tabla
+            //declarar la variable tabla
             DataTable oTabla = new DataTable();
 
-            //1 establecer la conexion
-            Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
+            //establecer la conexion
+            Conexion oConexion = new Conexion();
 
-            // 2 ejecutar spProducto_ConsultarTodos
+            // ejecutar SP
             try
             {
                 oConexion.BorrarParametros();
-
                 oConexion.AgregarParametro("@id", valorId);
                 oTabla = oConexion.EjecutarQuery("SP_LISTAR_SECTOR_MODIFICAR");
-
                 lblNombre.Text = oTabla.Rows[0]["Nombre"].ToString();
                 txtDesc.Text = oTabla.Rows[0]["Descripcion"].ToString();
 
-                //  cmbSector.Text = oTabla.Rows[0]["Sector"].ToString();
-                // cmbTipoDesuario.Text= oTabla.Rows[0]["Tipo de usuario"].ToString();
+                //Cierro conexion
+                oConexion.Desconectar();
 
             }
             catch (Exception ex)
@@ -56,14 +54,9 @@ namespace ordenes_de_trabajo
         {
             try
             {
-                int valorId = Convert.ToInt16(frmAdmSectores.temporal);
-                //0 declarar la variable tabla
+                int valorId = Convert.ToInt16(frmAdmSectores.temporal);            
                 DataTable oTabla = new DataTable();
-
-                //1 establecer la conexion
-                Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
-
-
+                Conexion oConexion = new Conexion();
                 oConexion.AgregarParametro("@id", valorId);
                 oConexion.EjecutarQuery("SP_ELIMINAR_SECTOR");
                 MessageBox.Show("Sector eliminado");
@@ -79,21 +72,22 @@ namespace ordenes_de_trabajo
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
-            {
-                int valorId = Convert.ToInt16(frmAdmSectores.temporal);
-                //0 declarar la variable tabla
-                DataTable oTabla = new DataTable();
-
-                //1 establecer la conexion
-                Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
-                
-
-                oConexion.AgregarParametro("@id", valorId);
-                oConexion.AgregarParametro("@desc", txtDesc.Text);
-                oConexion.EjecutarQuery("SP_MODIFICAR_SECTOR");
-                MessageBox.Show("Sector modificado");
-                this.Hide();
-                oConexion.Desconectar();
+               {
+                //Comprueba que los campos no esten vacios
+                if (txtDesc.Text != "") { 
+                    int valorId = Convert.ToInt16(frmAdmSectores.temporal);
+                    DataTable oTabla = new DataTable();
+                    Conexion oConexion = new Conexion();               
+                    oConexion.AgregarParametro("@id", valorId);
+                    oConexion.AgregarParametro("@desc", txtDesc.Text);
+                    oConexion.EjecutarQuery("SP_MODIFICAR_SECTOR");
+                    MessageBox.Show("Sector modificado");
+                    this.Hide();
+                    oConexion.Desconectar();//desconecta
+                }
+                else { 
+                MessageBox.Show("Debe completar todos los campos!");
+                }
             }
             catch (Exception ex)
             {

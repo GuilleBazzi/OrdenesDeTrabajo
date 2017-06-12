@@ -14,33 +14,43 @@ namespace ordenes_de_trabajo
     {
         public frmOrdenes()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
 
-        public static String temporal2 = "";
+        public static string temporal = "";// guarda el id de la orden para usarlo luego en el formulario de modificar
+        private string Activos = "Si";// guarda el valor del parametro para obtener sectores activos o borrados
 
         private void frmOrdenes_Load(object sender, EventArgs e)
         {
             Consultar();
         }
 
+            private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmAltaOrden nuevaOrden = new frmAltaOrden();
+            nuevaOrden.ShowDialog();
+            Consultar();
+        }
         private void Consultar()
         {
-            //0 declarar la variable tabla
+            //declarar la variable tabla
             DataTable oTabla = new DataTable();
 
-            //1 establecer la conexion
-            Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
+            // establecer la conexion
+            Conexion oConexion = new Conexion();
 
-            // 2 ejecutar spProducto_ConsultarTodos
+            // ejecutar SP
             try
             {
                 oConexion.BorrarParametros();
-                oTabla = oConexion.EjecutarQuery("SP_LISTAR_ORDENES");
+                oConexion.AgregarParametro("@Filtro", txtFiltro.Text);
+                oConexion.AgregarParametro("@Activo", Activos);
+                oTabla = oConexion.EjecutarQuery("SP_LISTAR_ORDENES_FILTRO");
 
-                // 3 lleno la grilla
-
+                //lleno la grilla
                 gvGrilla.DataSource = oTabla;
+                //Cierro conexion
+                oConexion.Desconectar();
             }
             catch (Exception ex)
             {
@@ -49,21 +59,41 @@ namespace ordenes_de_trabajo
 
         }
 
-
-
-            private void btnNuevo_Click(object sender, EventArgs e)
+        //Si escribo en el txt filtro ejecuta consultar
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            frmAltaOrden nuevaOrden = new frmAltaOrden();
-            nuevaOrden.Show();
+            Consultar();
         }
 
-            private void gvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
-            {
-                frmModificarOrden modificar = new frmModificarOrden();
+        //Cuando hago click en un elemento en la grilla
+        private void gvGrilla_Click(object sender, EventArgs e)
+        {
+            //llama al fromulario modificar, guarda el id de la orden en la variable para usarla luego en el otro form
+            frmModificarOrden nuevo = new frmModificarOrden();
+            temporal = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
+            nuevo.ShowDialog();
+            Consultar();
+        }
 
-                temporal2 = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
-                MessageBox.Show(temporal2);
-                modificar.Show();
+        //Si orpimo actualizar ejecuto consultar
+        private void btnAct_Click(object sender, EventArgs e)
+        {
+            Consultar();
+        }
+
+        //Si selecciono obtener inactivos cambio el valor de la variable a No, esta se pasa como parametro al sp
+        private void chkInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkInactivos.Checked)
+            {
+                Activos = "No";
+                Consultar();
             }
+            else
+            {
+                Activos = "Si";
+                Consultar();
+            }
+        }
     }
 }

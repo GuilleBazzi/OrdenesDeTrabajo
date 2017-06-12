@@ -20,11 +20,9 @@ namespace ordenes_de_trabajo
         private void frmAltaPersona_Load(object sender, EventArgs e)
         {
             //Creo conexion
-            Conexion objConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
+            Conexion objConexion = new Conexion();
             cmbSector.DataSource = objConexion.EjecutarQuery("SP_LISTAR_SECTORES"); //Ejecuto sp
             cmbSector.DisplayMember = "Nombre"; //Elijo el campo a mostrar
-
-
             cmbTipoDesuario.DataSource = objConexion.EjecutarQuery("SP_LISTAR_TIPO_USUARIO");
             cmbTipoDesuario.DisplayMember = "Nombre";
         }
@@ -32,28 +30,31 @@ namespace ordenes_de_trabajo
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
-            {
-                DataTable oTabla = new DataTable();
+            {//primero comprueba que los campos no esten vacios
+                if (txtAlias.Text != "" && txtApe.Text != "" && txtClave.Text != "" && txtEmail.Text != "" && txtNombre.Text != "") { 
+                    DataTable oTabla = new DataTable();
+                    //establecer la conexion
+                    Conexion oConexion = new Conexion();
+                    cmbSector.DisplayMember = "IdSector";
+                    cmbTipoDesuario.DisplayMember = "IdTipo";
 
-                //1 establecer la conexion
-                Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
-                cmbSector.DisplayMember = "IdSector";
-                cmbTipoDesuario.DisplayMember = "IdTipo";
-
-                oConexion.BorrarParametros();
-                oConexion.AgregarParametro("@Nombre", txtNombre.Text);  //agrego los parametros al sp con los datos tomados ce los txt y cmb
-                oConexion.AgregarParametro("@Apellido", txtApe.Text);
-                oConexion.AgregarParametro("@Email", txtEmail.Text);
-                oConexion.AgregarParametro("@Alias", txtAlias.Text);
-                oConexion.AgregarParametro("@Clave", txtClave.Text);
-                oConexion.AgregarParametro("@TipoUsuario", cmbTipoDesuario.Text);
-                oConexion.AgregarParametro("@Sector", cmbSector.Text);
-                oTabla = oConexion.EjecutarQuery("SP_ALTA_USUARIO");
-
-                this.Hide();
-                MessageBox.Show("Usuario creado");
-                oConexion.Desconectar();
-                
+                    oConexion.BorrarParametros();
+                    oConexion.AgregarParametro("@Nombre", txtNombre.Text);  //agrego los parametros al sp con los datos tomados ce los txt y cmb
+                    oConexion.AgregarParametro("@Apellido", txtApe.Text);
+                    oConexion.AgregarParametro("@Email", txtEmail.Text);
+                    oConexion.AgregarParametro("@Alias", txtAlias.Text);
+                    oConexion.AgregarParametro("@Clave", txtClave.Text);
+                    oConexion.AgregarParametro("@TipoUsuario", cmbTipoDesuario.Text);
+                    oConexion.AgregarParametro("@Sector", cmbSector.Text);
+                    oTabla = oConexion.EjecutarQuery("SP_ALTA_USUARIO"); 
+                    MessageBox.Show("Usuario creado");
+                    this.Hide();
+                    oConexion.Desconectar();
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar todos los campos!");
+                }
 
 
 

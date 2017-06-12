@@ -17,7 +17,8 @@ namespace ordenes_de_trabajo
             InitializeComponent();
         }
 
-        public static String temporal = "";
+        public static string temporal = ""; // guarda el id del Usuario para usarlo luego en el formulario de modificar
+        private string Activos = "Si";// guarda el valor del parametro para obtener sectores activos o borrados
 
         private void frmAdmUsuarios_Load(object sender, EventArgs e)
 
@@ -28,29 +29,33 @@ namespace ordenes_de_trabajo
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmAltaUsuario NuevoUsuario = new frmAltaUsuario();
-            NuevoUsuario.Show();
+            NuevoUsuario.ShowDialog();
+            Consultar();
 
         }
 
 
         private void Consultar()
         {
-            //0 declarar la variable tabla
+            // declarar la variable tabla
             DataTable oTabla = new DataTable();
 
-            //1 establecer la conexion
-            Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
+            // establecer la conexion
+            Conexion oConexion = new Conexion();
 
-            // 2 ejecutar spProducto_ConsultarTodos
+            // ejecutar SP
             try
             {
                 oConexion.BorrarParametros();
                 oConexion.AgregarParametro("@Filtro", txtFiltro.Text);
+                oConexion.AgregarParametro("@Activo", Activos);
                 oTabla = oConexion.EjecutarQuery("SP_LISTAR_USUARIOS_FILTRO");
 
-                // 3 lleno la grilla
-
+            //  lleno la grilla
                 gvGrilla.DataSource = oTabla;
+
+                //cierro conexion
+                oConexion.Desconectar();
             }
             catch (Exception ex)
             {
@@ -59,31 +64,41 @@ namespace ordenes_de_trabajo
 
         }
 
-
+        //Si escribo en el txt filtro ejecuta consultar
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
             Consultar();
         }
 
+        //Cuando hago click en un elemento en la grilla
         private void gvGrilla_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //llama al fromulario modificar, guarda el id del usuario en la variable para usarla luego en el otro form
             frmModificarUsuario modificar = new frmModificarUsuario();
-
             temporal = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
-            MessageBox.Show(temporal);
-            modificar.Show();
+            modificar.ShowDialog();
+            Consultar();
         }
 
+        //Si orpimo actualizar ejecuto consultar
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            this.Close();
-            frmAdmUsuarios nuevo = new frmAdmUsuarios();
-            nuevo.Show();
+            Consultar();
         }
 
-        private void gvGrilla_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //Si selecciono obtener inactivos cambio el valor de la variable a No, esta se pasa como parametro al sp
+        private void chkInactivos_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (chkInactivos.Checked)
+            {
+                Activos = "No";
+                Consultar();
+            }
+            else
+            {
+                Activos = "Si";
+                Consultar();
+            }
         }
     }
 }

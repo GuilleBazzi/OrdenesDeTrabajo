@@ -21,21 +21,27 @@ namespace ordenes_de_trabajo
         {
             try
             {
-                DataTable oTabla = new DataTable();
+                //comprueba que los campos no esten vacios
+                if (txtDesc.Text != "" && txtNombre.Text != "") { 
+                    DataTable oTabla = new DataTable();
 
-                //1 establecer la conexion
-                Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
+                    // establecer la conexion
+                    Conexion oConexion = new Conexion();
 
-                oConexion.BorrarParametros();
-                oConexion.AgregarParametro("@Nombre", txtNombre.Text);  //agrego los parametros al sp con los datos tomados ce los txt y cmb
-                oConexion.AgregarParametro("@Descripcion", txtDesc.Text);
-                oTabla = oConexion.EjecutarQuery("SP_NUEVO_SECTOR");
+                    oConexion.BorrarParametros();
+                    oConexion.AgregarParametro("@Nombre", txtNombre.Text);  //agrego los parametros al sp con los datos tomados ce los txt y cmb
+                    oConexion.AgregarParametro("@Descripcion", txtDesc.Text);
+                    oTabla = oConexion.EjecutarQuery("SP_NUEVO_SECTOR");
+                    MessageBox.Show("Sector creado");
+                    this.Hide(); 
+                    //Cierro conexion
+                    oConexion.Desconectar();
 
-                this.Hide();
-                MessageBox.Show("Sector creado");
-                oConexion.Desconectar();
-
-
+                }
+                else
+                {
+                    MessageBox.Show("Debe completar todos los campos!");
+                }
 
 
             }
@@ -43,6 +49,11 @@ namespace ordenes_de_trabajo
             {
                 MessageBox.Show("ERROR!!\n\n" + ex.Message);
             }
+        }
+
+        private void frmAltaSector_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -17,17 +17,19 @@ namespace ordenes_de_trabajo
             InitializeComponent();
         }
 
-        public static string temporal = "";
+        public static string temporal = ""; // guarda el id del sector para usarlo luego en el formulario de modificar
+        private string Activos = "Si";  // guarda el valor del parametro para obtener sectores activos o borrados
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            // llama al frm nuevo sector
             frmAltaSector nuevoSec = new frmAltaSector();
-            //this.Hide();
-            nuevoSec.Show();
+            nuevoSec.ShowDialog();
+            Consultar();
         }
 
 
-
+        //al cargar el formulario se ejecuta Consultar
         private void frmAdmSectores_Load(object sender, EventArgs e)
         {
             Consultar();
@@ -36,22 +38,25 @@ namespace ordenes_de_trabajo
 
         private void Consultar()
         {
-            //0 declarar la variable tabla
+            //declarar la variable tabla
             DataTable oTabla = new DataTable();
 
-            //1 establecer la conexion
-            Conexion oConexion = new Conexion("Data Source=.\\SQLEXPRESS;Initial Catalog=TPOT;Integrated Security=SSPI;Persist Security Info=False;");
-
-            // 2 ejecutar spProducto_ConsultarTodos
+            //establecer la conexion
+            Conexion oConexion = new Conexion();
+            
             try
             {
+                //Listo los sectores
                 oConexion.BorrarParametros();
                 oConexion.AgregarParametro("@Filtro", txtFiltro.Text);
+                oConexion.AgregarParametro("@Activo", Activos);
                 oTabla = oConexion.EjecutarQuery("SP_LISTAR_SECTORES_FILTRO");
 
-                // 3 lleno la grilla
-
+                //lleno la grilla
                 gvGrilla.DataSource = oTabla;
+
+                //cierro conexion
+                oConexion.Desconectar();
             }
             catch (Exception ex)
             {
@@ -60,26 +65,42 @@ namespace ordenes_de_trabajo
 
         }
 
+        //Si escribo en el txt filtro ejecuta consultar
         private void txtFiltro_TextChanged_1(object sender, EventArgs e)
         {
             Consultar();
         }
 
+
+        //Cuando hago click en un elemento en la grilla
         private void gvGrilla_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //llama al fromulario modificar sector, guarda el id del sector en la variable para usarla luego en el otro form
             frmModificarSector modificar = new frmModificarSector();
-
             temporal = Convert.ToString(gvGrilla.Rows[gvGrilla.CurrentRow.Index].Cells[0].Value);
-          //  MessageBox.Show(temporal);
             modificar.ShowDialog();
             Consultar();
         }
 
+        //Si orpimo actualizar ejecuto consultar
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            frmAdmSectores nuevo = new frmAdmSectores();
-            this.Close();
-            nuevo.Show();
+            Consultar();
+        }
+
+        //Si selecciono obtener inactivos cambio el valor de la variable a No, esta se pasa como parametro al sp
+        private void chkInactivos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkInactivos.Checked)
+            {
+                Activos = "No";
+                Consultar();
+            }
+            else
+            {
+                Activos = "Si";
+                Consultar();
+            }
         }
     }
 }

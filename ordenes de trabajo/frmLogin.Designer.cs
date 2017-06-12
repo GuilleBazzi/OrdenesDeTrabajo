@@ -42,52 +42,52 @@
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(44, 240);
+            this.txtUsuario.Location = new System.Drawing.Point(237, 55);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(6);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(173, 34);
-            this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TabIndex = 0;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(40, 320);
+            this.txtContraseña.Location = new System.Drawing.Point(237, 137);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(6);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(173, 34);
-            this.txtContraseña.TabIndex = 5;
+            this.txtContraseña.TabIndex = 1;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Calibri Light", 10F);
-            this.lblUsuario.Location = new System.Drawing.Point(37, 217);
+            this.lblUsuario.Location = new System.Drawing.Point(234, 32);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(51, 17);
+            this.lblUsuario.Size = new System.Drawing.Size(34, 17);
             this.lblUsuario.TabIndex = 2;
-            this.lblUsuario.Text = "Usuario";
+            this.lblUsuario.Text = "Alias";
             // 
             // lblContraseña
             // 
             this.lblContraseña.AutoSize = true;
             this.lblContraseña.Font = new System.Drawing.Font("Calibri Light", 10F);
-            this.lblContraseña.Location = new System.Drawing.Point(37, 297);
+            this.lblContraseña.Location = new System.Drawing.Point(234, 114);
             this.lblContraseña.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblContraseña.Name = "lblContraseña";
             this.lblContraseña.Size = new System.Drawing.Size(73, 17);
-            this.lblContraseña.TabIndex = 4;
+            this.lblContraseña.TabIndex = 3;
             this.lblContraseña.Text = "Contraseña";
             // 
             // btnIngresar
             // 
-            this.btnIngresar.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnIngresar.Font = new System.Drawing.Font("Calibri Light", 14F);
-            this.btnIngresar.Location = new System.Drawing.Point(93, 373);
+            this.btnIngresar.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnIngresar.Font = new System.Drawing.Font("Book Antiqua", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.Location = new System.Drawing.Point(313, 180);
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(88, 46);
-            this.btnIngresar.TabIndex = 6;
+            this.btnIngresar.Size = new System.Drawing.Size(97, 46);
+            this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = false;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -95,9 +95,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(75, 79);
+            this.pictureBox1.Location = new System.Drawing.Point(49, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(106, 94);
+            this.pictureBox1.Size = new System.Drawing.Size(164, 161);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
@@ -108,11 +108,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 32);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(55, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 27);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gestor de ordenes de trabajo";
+            this.label1.Size = new System.Drawing.Size(158, 29);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Iniciar Sesion";
             // 
             // label2
             // 
@@ -120,13 +121,14 @@
             this.label2.Location = new System.Drawing.Point(145, 104);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 27);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 7;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(270, 431);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(430, 248);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -136,8 +138,10 @@
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Font = new System.Drawing.Font("Calibri Light", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LOGIN";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

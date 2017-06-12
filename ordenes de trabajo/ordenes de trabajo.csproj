@@ -45,23 +45,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="conexion.cs" />
-    <Compile Include="frmUsuarioMantenimiento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUsuarioMantenimiento.Designer.cs">
-      <DependentUpon>frmUsuarioMantenimiento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmModificarOrden.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmModificarOrden.Designer.cs">
-      <DependentUpon>frmModificarOrden.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAltaSector.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAltaSector.Designer.cs">
       <DependentUpon>frmAltaSector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListarPersonalMant2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarPersonalMant2.Designer.cs">
+      <DependentUpon>frmListarPersonalMant2.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -93,6 +87,12 @@
     <Compile Include="frmAltaOrden.Designer.cs">
       <DependentUpon>frmAltaOrden.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarOrden.Designer.cs">
+      <DependentUpon>frmModificarOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModificarSector.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,13 +117,14 @@
     <Compile Include="frmAltaUsuario.Designer.cs">
       <DependentUpon>frmAltaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalConexion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmModificarOrden.resx">
-      <DependentUpon>frmModificarOrden.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmAltaSector.resx">
       <DependentUpon>frmAltaSector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarPersonalMant2.resx">
+      <DependentUpon>frmListarPersonalMant2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -139,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaOrden.resx">
       <DependentUpon>frmAltaOrden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarOrden.resx">
+      <DependentUpon>frmModificarOrden.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarSector.resx">
       <DependentUpon>frmModificarSector.cs</DependentUpon>
@@ -161,9 +165,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmUsuarioMantenimiento.resx">
-      <DependentUpon>frmUsuarioMantenimiento.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
